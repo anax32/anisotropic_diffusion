@@ -139,7 +139,8 @@ public:
   {
     const unsigned int  d = 1;  // only greyscale images for now
     unsigned int  c;  // channel (iterates over d)
-    unsigned int  x, y, p, pp;
+    unsigned int  x, y;
+    int p, pp;
     double      v;  // new pixel value
 
     allocPassBuffers ();
@@ -345,9 +346,15 @@ public:
    * @param lambda  see perona and malik
    * @param kappa    see perona and malik
    */
-  AnisotropicDiffusion (unsigned int width, unsigned int height, const float lambdaValue = 0.25f, const float kappaValue = 0.2f)
-    : Diffusion (width, height), g (NULL),
-    lambda (lambdaValue), kappa (kappaValue)
+  AnisotropicDiffusion (
+    unsigned int width,
+    unsigned int height,
+    const float lambdaValue = 0.25f,
+    const float kappaValue = 0.2f)
+    : Diffusion (width, height),
+      g (NULL),
+      lambda (lambdaValue),
+      kappa (kappaValue)
   {
     allocEdgeImage ();
     allocCondCoeffs ();

@@ -227,9 +227,9 @@ public:
     }
 
     fprintf (stdout, ", nc: %i [%i -> %i]\n", c, mn, mx);
-    delete eqs;
-    delete meq;
-    delete cnt;
+    delete[] eqs;
+    delete[] meq;
+    delete[] cnt;
     return c;
   }
 };
