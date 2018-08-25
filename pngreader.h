@@ -352,7 +352,10 @@ public:
     }
     else  // caller wants the image, check the details are correct
     {
-      if ((width != w) || (height != h) || (bitdepth != bd) || (colourType != ct))
+      if ((width != w) ||
+          (height != h) ||
+          (bitdepth != static_cast<unsigned int>(bd)) ||
+          (colourType != static_cast<unsigned int>(ct)))
       {
         png_destroy_read_struct (&png_ptr, &info_ptr, NULL);
         fclose (f);
